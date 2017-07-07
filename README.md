@@ -20,9 +20,9 @@ $app = new Application();
 $app['debug'] = true;
 
 $app->register(new JWTServiceProvider(), [
-                'jwt.issuer'     => 'localhost',
-                'jwt.audience'   => 'localhost',
-                'jwt.key'        => 'testkey',
+                'jwt.issuer'   => 'localhost',
+                'jwt.audience' => 'localhost',
+                'jwt.key'      => 'testkey',
             ]);
 
 $payload = [
