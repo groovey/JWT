@@ -1,0 +1,22 @@
+{
+    "name": "groovey/jwt",
+    "description": "Groovey Json Web Token.",
+    "keywords": ["silex", "groovey"],
+    "authors": [
+        {
+            "name": "Harold Kim Cantil",
+            "email": "pokoot@gmail.com"
+        }
+    ],
+    "require": {
+        "silex/silex" : "~2.0",
+        "symfony/yaml" : "~3.0",
+        "twig/twig" : "~1.24",
+        "groovey/support" : "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Groovey\\JWT\\": "src"
+        }
+    }
+}
