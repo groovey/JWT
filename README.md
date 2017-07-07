@@ -19,7 +19,18 @@ use Groovey\JWT\Providers\JWTServiceProvider;
 $app = new Application();
 $app['debug'] = true;
 
-$app->register(new JWTServiceProvider());
+$app->register(new JWTServiceProvider(), [
+                'jwt.issuer'     => 'localhost',
+                'jwt.audience'   => 'localhost',
+                'jwt.key'        => 'testkey',
+            ]);
 
-$token = $app['jwt']->encode();
+$payload = [
+    'email'    => 'test1@gmail.com',
+    'password' => 'test1',
+];
+
+$token   = $app['jwt']->encode($payload);
+$payload = $app['jwt']->decode($token);
+
 ```
