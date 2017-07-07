@@ -52,13 +52,10 @@ class JWTTest extends PHPUnit_Framework_TestCase
         $payload = [
             'email'      => 'test1@gmail.com',
             'password'   => 'test1',
-            'expiration' => time() - 3600
+            'expiration' => time() - 3600,
         ];
 
         $token = $app['jwt']->encode($payload);
         $app['jwt']->decode($token);
-
     }
-
-
 }
