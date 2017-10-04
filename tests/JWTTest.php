@@ -17,7 +17,7 @@ class JWTTest extends PHPUnit_Framework_TestCase
         $app->register(new TraceServiceProvider());
         $app->register(new JWTServiceProvider(), [
                 'jwt.issuer'     => 'localhost',
-                'jwt.audience'   => 'localhost',
+                'jwt.audience'   => 'http://sso.onekey.dev',
                 'jwt.key'        => 'testkey',
             ]);
 
