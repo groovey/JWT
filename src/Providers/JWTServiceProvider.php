@@ -14,19 +14,21 @@ class JWTServiceProvider implements ServiceProviderInterface, BootableProviderIn
     {
         $app['jwt'] = function ($app) {
 
-            $config = [
-                'issuer'   => $app['jwt.issuer'],
-                'audience' => $app['jwt.audience'],
-                'key'      => $app['jwt.key'],
-            ];
+            $config = ['key' => $app['jwt.key']];
+
+            if (isset($app['jwt.issuer'])) {
+                $config['issuer'] = $app['jwt.issuer'];
+            }
+
+            if (isset($app['jwt.audience'])) {
+                $config['issuer'] = $app['jwt.issuer'];
+            }
 
             if (isset($app['jwt.expiration'])) {
                 $config['expiration'] = $app['jwt.expiration'];
             } else {
                 $config['expiration'] = time() + 86400;
             }
-
-            // TODO iss & aud
 
             return new JWT($app, $config);
         };
